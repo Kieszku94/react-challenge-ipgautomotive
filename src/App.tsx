@@ -1,10 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { fetchCity } from "./helpers/fetchCity";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Home from "./components/Home";
+import Login from "./components/Login";
 
 function App() {
   const cities = ["Moscow", "London"];
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   useEffect(() => {
     cities.map(async (city) => {
       try {
@@ -18,22 +22,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={isAuthenticated ? <Home /> : <Navigate to="/login" />}
+      />
+      <Route path="/login" element={<Login />} />
+    </Routes>
   );
 }
 
