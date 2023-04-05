@@ -1,22 +1,20 @@
 import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import axios from "axios";
+import { fetchCity } from "./helpers/fetchCity";
 
 function App() {
-  const getData = async () => {
-    await axios
-      .get("http://api.weatherapi.com/v1/current.json", {
-        params: {
-          key: process.env.REACT_APP_API_KEY,
-          q: "Paris",
-        },
-      })
-      .then((res) => console.log(res.data));
-  };
-
+  const cities = ["Moscow", "London"];
   useEffect(() => {
-    getData();
+    cities.map(async (city) => {
+      try {
+        let result = (await fetchCity(city)).data;
+        console.log(result);
+      } catch (error) {
+        console.log(error);
+      }
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
