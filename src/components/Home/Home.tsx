@@ -26,13 +26,22 @@ const Home = (): JSX.Element => {
         />
         <button
           className="addToListBtn"
-          onClick={() => setCities(getCitiesList(textboxValue))}
+          onClick={() => {
+            if (cities.length >= 5) return;
+            setCities(getCitiesList(textboxValue));
+          }}
         >
           Add
         </button>
       </div>
       {cities.map((c, ind) => (
-        <City key={c} city={c} index={ind} />
+        <City
+          key={c}
+          cities={cities}
+          setCities={setCities}
+          city={c}
+          index={ind}
+        />
       ))}
     </div>
   );
