@@ -16,7 +16,8 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState(false);
   return (
     <div className="loginContainer">
-      <form>
+      <form className="loginForm">
+        <h2 className="signIn">Sign In</h2>
         <div className="loginInput">
           <span className="loginSpan">
             Username <abbr className="loginRequired">*</abbr>
