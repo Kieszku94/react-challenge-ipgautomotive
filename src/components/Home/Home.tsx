@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./Home.css";
 import { useUsername } from "../../context/userContext";
 
-const Home = () => {
+const Home = (): JSX.Element => {
   const username = useUsername();
+  const [cities, setCities] = useState([]);
   const [error, setError] = useState(false);
   const [maximumError, setMaximumError] = useState(false);
 
