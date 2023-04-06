@@ -29,15 +29,19 @@ const useUser = () => {
 
 const UserContext = createContext<UserContextType>({
   username: "",
-  setUsername: () => {},
+  setUsername: (payload: string) => {},
   password: "",
-  setPassword: () => {},
+  setPassword: (payload: string) => {},
   userAuthenticated: false,
-  setUserAuthenticated: () => {},
+  setUserAuthenticated: (payload: boolean) => {},
 });
 
-export const UserProvider = ({ children }: UserContextProviderProps) => {
-  <UserContext.Provider value={useUser()}>{children}</UserContext.Provider>;
+export const UserProvider = ({
+  children,
+}: UserContextProviderProps): JSX.Element => {
+  return (
+    <UserContext.Provider value={useUser()}>{children}</UserContext.Provider>
+  );
 };
 
 export const useUsername = () => useContext(UserContext).username;
