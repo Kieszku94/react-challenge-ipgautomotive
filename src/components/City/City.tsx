@@ -63,6 +63,7 @@ const City = (props: Iprops) => {
             props.cities.filter((x) => x !== city?.location.name)
           );
         }}
+        title="Delete City From The List"
       />
     </div>
   );
