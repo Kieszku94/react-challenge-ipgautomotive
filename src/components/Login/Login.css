@@ -49,6 +49,10 @@
   border: 2px solid red;
 }
 
+.inputError {
+  color: red;
+}
+
 .loginBtn {
   text-decoration: none;
   display: inline-block;
