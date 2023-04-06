@@ -31,8 +31,8 @@ const Home = (): JSX.Element => {
           Add
         </button>
       </div>
-      {cities.map((c) => (
-        <City key={c} city={c} />
+      {cities.map((c, ind) => (
+        <City key={c} city={c} index={ind} />
       ))}
     </div>
   );
