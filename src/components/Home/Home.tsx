@@ -10,6 +10,10 @@ const Home = () => {
   return (
     <div className="container">
       <h1 className="welcomeMessage">{`Welcome to the weather app ${username}`}</h1>
+      <h2 className="addCitiesMessage">
+        Please add cities to the list to see the current weather for each of
+        them. You can add up to 5 cities.
+      </h2>
       <div className="textfieldContainer">
         <input className="textfieldInput" type="text" />
         <button className="addToListBtn">Add</button>
