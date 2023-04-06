@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "./Home.css";
 import { useUsername } from "../../context/userContext";
 import { getCitiesList } from "../../helpers/getCitiesList";
+import City from "../City/City";
 
 const Home = (): JSX.Element => {
   const username = useUsername();
   const [textboxValue, setTextboxValue] = useState("");
-  const [cities, setCities] = useState([]);
+  const [cities, setCities] = useState<string[]>([]);
   const [error, setError] = useState(false);
   const [maximumError, setMaximumError] = useState(false);
 
@@ -25,13 +26,14 @@ const Home = (): JSX.Element => {
         />
         <button
           className="addToListBtn"
-          onClick={() => {
-            getCitiesList(textboxValue);
-          }}
+          onClick={() => setCities(getCitiesList(textboxValue))}
         >
           Add
         </button>
       </div>
+      {cities.map((c) => (
+        <City key={c} city={c} />
+      ))}
     </div>
   );
 };
