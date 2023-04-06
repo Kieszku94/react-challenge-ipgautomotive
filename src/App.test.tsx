@@ -9,4 +9,12 @@ describe("Input validation", () => {
     const input = "London, Moscow";
     expect(validateInput(input)).toBe(false);
   });
+  it("should allow valid city name", () => {
+    const input = "London";
+    expect(validateInput(input)).toBe(true);
+  });
+  it("should allow San Francisco as a city", () => {
+    const input = "San Francisco";
+    expect(validateInput(input)).toBe(true);
+  });
 });
