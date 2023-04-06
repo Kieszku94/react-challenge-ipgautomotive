@@ -1,19 +1,33 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import {
   useUsername,
   usePassword,
   useSetUsername,
   useSetPassword,
+  useSetUserAuthenticated,
 } from "../../context/userContext";
 
-const Login = () => {
+const Login = (): JSX.Element => {
   const username = useUsername();
   const setUsername = useSetUsername();
   const password = usePassword();
   const setPassword = useSetPassword();
-  const [userNameError, setUsernameError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const [loginError, setLoginError] = useState(false);
+  const setUserAuthenticated = useSetUserAuthenticated();
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    if (username !== "ipgautomotive" || password !== "carmaker") {
+      setLoginError(true);
+      return;
+    }
+    setUserAuthenticated(true);
+    navigate("/");
+  };
+
   return (
     <div className="loginContainer">
       <form className="loginForm">
@@ -23,11 +37,12 @@ const Login = () => {
             Username <abbr className="loginRequired">*</abbr>
           </span>
           <input
-            className={userNameError ? "input inputRequired" : "input"}
+            className={loginError ? "input inputRequired" : "input"}
             type="text"
             required
             onChange={(e) => {
               setUsername(e.target.value);
+              setLoginError(false);
             }}
             value={username}
           />
@@ -37,15 +52,25 @@ const Login = () => {
             Password <abbr className="loginRequired">*</abbr>
           </span>
           <input
-            className={passwordError ? "input inputRequired" : "input"}
+            className={loginError ? "input inputRequired" : "input"}
             type="password"
             required
             onChange={(e) => {
               setPassword(e.target.value);
+              setLoginError(false);
             }}
             value={password}
           />
-          <button type="submit" className="loginBtn">
+          <div className="inputError">
+            {loginError
+              ? "Invalid username or password. Please try again."
+              : null}
+          </div>
+          <button
+            type="submit"
+            className="loginBtn"
+            onClick={(e) => handleSubmit(e)}
+          >
             Sign in
           </button>
         </div>
