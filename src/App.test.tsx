@@ -1,9 +1,12 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { validateInput } from "./helpers/validateInput";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("Input validation", () => {
+  it("should not allow special characters", () => {
+    const input = "!London";
+    expect(validateInput(input)).toBe(false);
+  });
+  it("should not allow 2 cities separated by a comma", () => {
+    const input = "London, Moscow";
+    expect(validateInput(input)).toBe(false);
+  });
 });
