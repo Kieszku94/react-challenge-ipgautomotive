@@ -38,3 +38,10 @@
   cursor: pointer;
   opacity: 0.8;
 }
+
+.err {
+  font-weight: 700;
+  color: red;
+  margin-top: 3rem;
+  margin-bottom: 0;
+}
