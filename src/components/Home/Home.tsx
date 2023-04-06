@@ -12,6 +12,7 @@ const Home = () => {
       <h1 className="welcomeMessage">{`Welcome to the weather app ${username}`}</h1>
       <div className="textfieldContainer">
         <input className="textfieldInput" type="text" />
+        <button className="addToListBtn">Add</button>
       </div>
     </div>
   );
