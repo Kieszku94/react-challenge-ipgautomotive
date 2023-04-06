@@ -3,36 +3,13 @@ import "./City.css";
 import { fetchCity } from "../../helpers/fetchCity";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { CityType } from "../../types/types";
 
 interface Iprops {
   city: string;
   cities: string[];
   setCities: React.Dispatch<React.SetStateAction<string[]>>;
-  index: Number;
 }
-
-type Condition = {
-  code: Number;
-  text: string;
-  icon: string;
-};
-
-type Location = {
-  name: String;
-};
-
-type Current = {
-  condition: Condition;
-  temp_c: Number;
-  humidity: Number;
-  precip_mm: Number;
-};
-
-type CityType = {
-  location: Location;
-  current: Current;
-  id: Number;
-};
 
 const City = (props: Iprops) => {
   const [city, setCity] = useState<CityType>();
@@ -41,7 +18,6 @@ const City = (props: Iprops) => {
     const getCity = async () => {
       try {
         await fetchCity(props.city).then((res) => {
-          res.data.id = props.index;
           setCity(res.data);
         });
       } catch (error) {
