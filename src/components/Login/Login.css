@@ -1,2 +1,39 @@
 .loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.loginInput {
+  margin: 0.5rem 0;
+}
+
+.loginSpan {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.loginRequired {
+  color: red;
+  border: 0;
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: "Roboto", Sans-serif;
+}
+
+.input:focus {
+  border: 1px solid #000;
+}
+
+.inputRequired {
+  border: 2px solid red;
 }
