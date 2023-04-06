@@ -37,3 +37,22 @@
 .inputRequired {
   border: 2px solid red;
 }
+
+.loginBtn {
+  text-decoration: none;
+  display: inline-block;
+  background-color: #00c119;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 1rem;
+  border-radius: 5px;
+  font-weight: 700;
+  border: 0;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.loginBtn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
