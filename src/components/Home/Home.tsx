@@ -27,8 +27,9 @@ const Home = (): JSX.Element => {
         <button
           className="addToListBtn"
           onClick={() => {
-            if (cities.length >= 5) return;
-            setCities(getCitiesList(textboxValue));
+            const cts = getCitiesList(textboxValue);
+            if (cts.length > 5) return;
+            setCities(cts);
           }}
         >
           Add
