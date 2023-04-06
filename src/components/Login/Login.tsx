@@ -41,10 +41,12 @@ const Login = () => {
             required
             onChange={(e) => {
               setPassword(e.target.value);
-              console.log(password);
             }}
             value={password}
           />
+          <button type="submit" className="loginBtn">
+            Sign in
+          </button>
         </div>
       </form>
     </div>
