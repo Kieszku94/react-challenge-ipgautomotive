@@ -18,5 +18,4 @@ export type Current = {
 export type CityType = {
   location: Location;
   current: Current;
-  id: Number;
 };
