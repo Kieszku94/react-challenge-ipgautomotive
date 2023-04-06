@@ -1,0 +1,41 @@
+.container {
+  text-align: center;
+  font-family: "Quicksand";
+}
+
+.welcomeMessage {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  color: green;
+}
+
+.textfieldContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.textfieldInput {
+  min-width: 350px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 0.25rem 0;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: "Quicksand", Sans-serif;
+}
+
+.textfieldInput:focus,
+.textfieldInput:active {
+  outline: none;
+  border-bottom: 1px solid #000;
+}
+
+.textfieldError {
+  color: red;
+  font-family: "Quicksand";
+  font-weight: 700;
+}

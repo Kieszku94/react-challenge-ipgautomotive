@@ -14,8 +14,8 @@ type UserContextProviderProps = {
 };
 
 const useUser = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("ipgautomotive");
+  const [password, setPassword] = useState("carmaker");
   const [userAuthenticated, setUserAuthenticated] = useState(false);
   return {
     username,
@@ -28,9 +28,9 @@ const useUser = () => {
 };
 
 const UserContext = createContext<UserContextType>({
-  username: "",
+  username: "ipgautomotive",
   setUsername: (payload: string) => {},
-  password: "",
+  password: "carmaker",
   setPassword: (payload: string) => {},
   userAuthenticated: false,
   setUserAuthenticated: (payload: boolean) => {},
