@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./Home.css";
 import { useUsername } from "../../context/userContext";
+import { getCitiesList } from "../../helpers/getCitiesList";
 
 const Home = (): JSX.Element => {
   const username = useUsername();
+  const [textboxValue, setTextboxValue] = useState("");
   const [cities, setCities] = useState([]);
   const [error, setError] = useState(false);
   const [maximumError, setMaximumError] = useState(false);
@@ -16,8 +18,19 @@ const Home = (): JSX.Element => {
         them. You can add up to 5 cities.
       </h2>
       <div className="textfieldContainer">
-        <input className="textfieldInput" type="text" />
-        <button className="addToListBtn">Add</button>
+        <input
+          className="textfieldInput"
+          type="text"
+          onChange={(e) => setTextboxValue(e.target.value)}
+        />
+        <button
+          className="addToListBtn"
+          onClick={() => {
+            getCitiesList(textboxValue);
+          }}
+        >
+          Add
+        </button>
       </div>
     </div>
   );
