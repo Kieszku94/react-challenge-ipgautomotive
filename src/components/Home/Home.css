@@ -1,7 +1,6 @@
 .container {
   margin-top: 4rem;
   margin-bottom: 4rem;
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
   font-family: "Quicksand";
@@ -11,15 +10,16 @@
 .welcomeMessage {
   margin-bottom: 4rem;
   color: green;
+  text-align: center;
 }
 
 .addCitiesMessage {
   font-size: 1.5rem;
   margin-bottom: 2.5rem;
+  text-align: center;
 }
 
 .textfieldContainer {
-  text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
